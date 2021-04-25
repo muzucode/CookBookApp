@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">CookBookApp</string>
+    <string name="recipe_desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. \n Aenean placerat elit nec elit \nimperdiet, id pellentesque \nmauris suscipit. Ut eleifend volutpat augue eu pretium. Etiam nec nunc non leo luctus dignissim. Nulla facilisi. Cras dictum quam nec augue tempus, et imperdiet erat porta. Vivamus feugiat sit amet magna porttitor ullamcorper. Sed varius mi vel elit feugiat, eget feugiat dui mollis. Sed dui nunc, cursus a mauris nec, fringilla finibus ligula. Nulla condimentum ante eros, quis tincidunt nisl consequat et. Proin libero nisi, iaculis sit amet placerat et, accumsan nec sapien. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Curabitur sed diam ornare ipsum dictum auctor eu ut tellus. Suspendisse efficitur blandit libero. Curabitur cursus diam placerat erat euismod gravida. Nullam nisi ex, porta non commodo vitae, semper ut elit.</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>
