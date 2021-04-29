@@ -27,7 +27,7 @@ class CreateRecipeActivity : AppCompatActivity() {
                 // Get all the inputted info
                 val name: String = findViewById<EditText>(R.id.editTextRecipeName).text.toString()
                 val cuisine: String = findViewById<EditText>(R.id.editTextCuisine).text.toString()
-                val description: String = findViewById<EditText>(R.id.editTextInstructions).text.toString()
+                val description: String = findViewById<EditText>(R.id.editTextSteps).text.toString()
                 if(name.isNotBlank() && cuisine.isNotBlank() && description.isNotBlank()){
                     recipeDao.insertOne(
                         Recipe(
@@ -35,6 +35,7 @@ class CreateRecipeActivity : AppCompatActivity() {
                             name,
                             "Muzucode",
                             cuisine,
+                            "Soup",
                             "potatoes",
                             description,
                             77,
@@ -46,7 +47,7 @@ class CreateRecipeActivity : AppCompatActivity() {
                     runOnUiThread{
                         findViewById<EditText>(R.id.editTextRecipeName).setText("")
                         findViewById<EditText>(R.id.editTextCuisine).setText("")
-                        findViewById<EditText>(R.id.editTextInstructions).setText("")
+                        findViewById<EditText>(R.id.editTextSteps).setText("")
                     }
                 }
                 else {

@@ -46,7 +46,14 @@ class MainActivity : AppCompatActivity() {
                     val rand = (0..allRecipes.size - 1).random()
                     val chosenRecipe = allRecipes[rand]
                     runOnUiThread {
-                        findViewById<ImageView>(R.id.recipeImg).setImageResource(R.drawable.souplogo)
+                        // Set food icon image
+                        when (chosenRecipe.foodtype) {
+                            "Soup" -> findViewById<ImageView>(R.id.recipeImg).setImageResource(R.drawable.souplogo)
+                            "Sushi" -> findViewById<ImageView>(R.id.recipeImg).setImageResource(R.drawable.sushilogo)
+                            else -> { // Note the block
+                                print("Chosen recipe has no type or wrong type")
+                            }
+                        }
                         findViewById<TextView>(R.id.sushiTitle).text = chosenRecipe.name
                         findViewById<TextView>(R.id.textViewAuthor).text = "By: ${chosenRecipe.author}"
                         findViewById<TextView>(R.id.textViewDescription).text = chosenRecipe.description

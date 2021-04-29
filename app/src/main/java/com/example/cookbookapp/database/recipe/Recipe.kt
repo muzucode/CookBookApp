@@ -9,6 +9,7 @@ data class Recipe(
     val name: String,
     val author: String?,
     val cuisine: String,
+    val foodtype: String,
     val ingredients: String,
     val description: String,
     val nativeBookId: Int?,
