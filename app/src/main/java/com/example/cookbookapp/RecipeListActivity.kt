@@ -41,11 +41,8 @@ class RecipeListActivity : AppCompatActivity() {
             findViewById<TextView>(R.id.recipe10)
         )
 
-
         // Get all recipes in database and load their names
         GlobalScope.launch{
-            var count: Int = 0
-
             // Save all recipes to list
             try{
                 // Get all recipes
@@ -58,7 +55,7 @@ class RecipeListActivity : AppCompatActivity() {
             // Updates page header visibility
             fun updateHeaderVisibility(){
                 // BtnFwd visibility
-                findViewById<Button>(R.id.btnFwd).visibility = if(listRecipes.size > 10){
+                findViewById<Button>(R.id.btnFwd).visibility = if(listRecipes.size > currentPage*10){
                     Button.VISIBLE
                 }
                 else {
@@ -74,25 +71,25 @@ class RecipeListActivity : AppCompatActivity() {
                 }
 
                 // Page number functionality/visibility
-                findViewById<TextView>(R.id.textViewPageNumber).text = "$currentPage / ${(listRecipes.size - (10-(listRecipes.size % 10))/10)}"
+                findViewById<TextView>(R.id.textViewPageNumber).text = "$currentPage / ${(ceil(listRecipes.size / 10.0).toInt())}"
             }
 
-            // If this list isn't empty then...
-            if(listRecipes.isNotEmpty()){
+            // Updates recipe text view content and visibility
+            fun updateTextViews(){
+                var count: Int = 0
+                // If there are less than 10 recipes gotten then lastRecipe index is
+                // last in the array
 
-                updateHeaderVisibility()
+                lastRecipe = if(listRecipes.size < currentPage * 10){
 
-                lastRecipe = if(listRecipes.size < 10){
-                    // If there are less than 10 recipes gotten then lastRecipe index is
-                    // last in the array
-                    listRecipes.size - 1
+                    listRecipes.size - (currentPage-1) * 10 - 1
                 } else {
                     9
                 }
 
                 // Set recipe textView names
                 for(i in firstRecipe..lastRecipe){
-                    recViewList[count].text = listRecipes[i].name
+                    recViewList[count].text = listRecipes[i + 10*(currentPage-1)].name
                     count++
                 }
 
@@ -102,22 +99,36 @@ class RecipeListActivity : AppCompatActivity() {
                         recViewList[i].visibility = TextView.INVISIBLE
                     }
                 }
+                // Else, set all to visible
+                else {
+                    for(i in 0..9){
+                        recViewList[i].visibility = TextView.VISIBLE
+                    }
+                }
+            }
+
+            // Initial UI update onCreate
+            if(listRecipes.isNotEmpty()){
+
+                updateHeaderVisibility()
+                updateTextViews()
+
             }
 
             // BtnFwd functionality
             findViewById<Button>(R.id.btnFwd).setOnClickListener{
-                currentPage += 1
+                currentPage++
                 updateHeaderVisibility()
+                updateTextViews()
+            }
+
+            // BtnBwd functionality
+            findViewById<Button>(R.id.btnBwd).setOnClickListener{
+                currentPage--
+                updateHeaderVisibility()
+                updateTextViews()
             }
 
         }
-
-
-
-
-
-
-
-
     }
 }
