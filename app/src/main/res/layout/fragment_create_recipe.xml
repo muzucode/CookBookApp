@@ -59,17 +59,17 @@
             app:layout_constraintTop_toBottomOf="@+id/textViewCuisine" />
 
         <TextView
-            android:id="@+id/textViewSteps"
+            android:id="@+id/textViewInstructions"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="32dp"
             android:layout_marginTop="32dp"
-            android:text="Steps"
+            android:text="Instructions"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextMultiLineIngredients" />
 
         <EditText
-            android:id="@+id/editTextSteps"
+            android:id="@+id/editTextInstructions"
             android:layout_width="0dp"
             android:layout_height="400dp"
             android:layout_marginStart="32dp"
@@ -85,7 +85,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewSteps" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewInstructions" />
 
         <TextView
             android:id="@+id/textViewTypeOfDish"

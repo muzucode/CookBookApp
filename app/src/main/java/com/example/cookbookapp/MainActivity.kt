@@ -56,7 +56,8 @@ class MainActivity : AppCompatActivity() {
                         }
                         findViewById<TextView>(R.id.sushiTitle).text = chosenRecipe.name
                         findViewById<TextView>(R.id.textViewAuthor).text = "By: ${chosenRecipe.author}"
-                        findViewById<TextView>(R.id.textViewDescription).text = chosenRecipe.description
+                        findViewById<TextView>(R.id.textViewRecipeDescription).text = chosenRecipe.description
+                        println(chosenRecipe.description)
                     }
 
                 }
@@ -67,6 +68,11 @@ class MainActivity : AppCompatActivity() {
         // Create recipe fragment
         findViewById<Button>(R.id.btnCreate).setOnClickListener{
             val i: Intent = Intent(this, CreateRecipeActivity::class.java)
+            startActivity(i)
+        }
+
+        findViewById<Button>(R.id.btnViewAllRecipes).setOnClickListener{
+            val i: Intent = Intent(this, RecipeListActivity::class.java)
             startActivity(i)
         }
     }
