@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                                 print("Chosen recipe has no type or wrong type")
                             }
                         }
-                        findViewById<TextView>(R.id.sushiTitle).text = chosenRecipe.name
+                        findViewById<TextView>(R.id.recipeTitle).text = chosenRecipe.name
                         findViewById<TextView>(R.id.textViewAuthor).text = "By: ${chosenRecipe.author}"
                         findViewById<TextView>(R.id.textViewRecipeDescription).text = chosenRecipe.description
                         println(chosenRecipe.description)

@@ -10,6 +10,9 @@ interface RecipeDao {
     @Query("SELECT * FROM recipe")
     suspend fun getAll(): List<Recipe>
 
+    @Query("SELECT * FROM recipe WHERE rid IN (:recipeId)")
+    suspend fun getById(recipeId: Int): Recipe
+
     @Insert
     suspend fun insertOne(recipe: Recipe)
 

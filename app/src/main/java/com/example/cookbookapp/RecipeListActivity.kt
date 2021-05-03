@@ -1,6 +1,7 @@
 package com.example.cookbookapp
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -87,9 +88,16 @@ class RecipeListActivity : AppCompatActivity() {
                     9
                 }
 
-                // Set recipe textView names
+                // Set recipe textView names and click intents
                 for(i in firstRecipe..lastRecipe){
                     recViewList[count].text = listRecipes[i + 10*(currentPage-1)].name
+
+                    // Set click listener intent to go to the recipe page
+                    recViewList[count].setOnClickListener{
+                        val intent: Intent = Intent(this@RecipeListActivity, RecipePageActivity::class.java)
+                        intent.putExtra("recipeId", listRecipes[i + 10*(currentPage-1)].rid)
+                        startActivity(intent)
+                    }
                     count++
                 }
 
