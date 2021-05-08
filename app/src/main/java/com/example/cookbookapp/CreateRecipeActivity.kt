@@ -28,6 +28,7 @@ class CreateRecipeActivity : AppCompatActivity() {
                 val name: String = findViewById<EditText>(R.id.editTextRecipeName).text.toString()
                 val cuisine: String = findViewById<EditText>(R.id.editTextCuisine).text.toString()
                 val description: String = findViewById<EditText>(R.id.editTextInstructions).text.toString()
+                val link: String = findViewById<EditText>(R.id.editTextLink).text.toString()
                 if(name.isNotBlank() && cuisine.isNotBlank() && description.isNotBlank()){
                     recipeDao.insertOne(
                         Recipe(
@@ -40,7 +41,8 @@ class CreateRecipeActivity : AppCompatActivity() {
                             description,
                             77,
                             ActiveEnv.user,
-                            "potatoes"
+                            "potatoes",
+                            link
                         )
                     )
 
@@ -48,6 +50,10 @@ class CreateRecipeActivity : AppCompatActivity() {
                         findViewById<EditText>(R.id.editTextRecipeName).setText("")
                         findViewById<EditText>(R.id.editTextCuisine).setText("")
                         findViewById<EditText>(R.id.editTextInstructions).setText("")
+                        findViewById<EditText>(R.id.editTextMultiLineIngredients).setText("")
+                        findViewById<EditText>(R.id.editTextRecipeName).setText("")
+                        findViewById<EditText>(R.id.editTextTypeOfDish).setText("")
+                        findViewById<EditText>(R.id.editTextLink).setText("")
                     }
                 }
                 else {

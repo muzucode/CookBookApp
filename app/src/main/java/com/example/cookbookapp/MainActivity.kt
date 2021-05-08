@@ -3,6 +3,7 @@ package com.example.cookbookapp
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
@@ -25,45 +26,13 @@ class MainActivity : AppCompatActivity() {
         val recipeFragment = RecipePageFragment()
         val noRecipesFoundFragment = NoRecipesFoundFragment()
 
-        // Set button event
-        findViewById<Button>(R.id.btnRandom).setOnClickListener {
-
-            // If no recipes in DB then show no recipes found
-            GlobalScope.launch{
-                val allRecipes = recipeDao.getAll()
-                if(allRecipes.isEmpty()){
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.containerFragment, noRecipesFoundFragment )
-                        commit()
-                    }
-                }
-                else {
-                    // Show recipe page
-                    supportFragmentManager.beginTransaction().apply {
-                        replace(R.id.containerFragment, recipeFragment)
-                        commit()
-                    }
-                    val rand = (0..allRecipes.size - 1).random()
-                    val chosenRecipe = allRecipes[rand]
-                    runOnUiThread {
-                        // Set food icon image
-                        when (chosenRecipe.foodtype) {
-                            "Soup" -> findViewById<ImageView>(R.id.recipeImg).setImageResource(R.drawable.souplogo)
-                            "Sushi" -> findViewById<ImageView>(R.id.recipeImg).setImageResource(R.drawable.sushilogo)
-                            else -> { // Note the block
-                                print("Chosen recipe has no type or wrong type")
-                            }
-                        }
-                        findViewById<TextView>(R.id.recipeTitle).text = chosenRecipe.name
-                        findViewById<TextView>(R.id.textViewAuthor).text = "By: ${chosenRecipe.author}"
-                        findViewById<TextView>(R.id.textViewRecipeDescription).text = chosenRecipe.description
-                        println(chosenRecipe.description)
-                    }
-
+        GlobalScope.launch{
+            if(recipeDao.getAll().isEmpty()){
+                runOnUiThread{
+                    findViewById<Button>(R.id.btnViewAllRecipes).visibility = Button.GONE
                 }
             }
         }
-
 
         // Create recipe fragment
         findViewById<Button>(R.id.btnCreate).setOnClickListener{
@@ -73,7 +42,16 @@ class MainActivity : AppCompatActivity() {
 
         findViewById<Button>(R.id.btnViewAllRecipes).setOnClickListener{
             val i: Intent = Intent(this, RecipeListActivity::class.java)
+            i.putExtra("mode", "select")
             startActivity(i)
         }
+
+        findViewById<Button>(R.id.btnRemoveRecipe).setOnClickListener{
+            val i: Intent = Intent(this, RecipeListActivity::class.java)
+            i.putExtra("mode", "remove")
+            startActivity(i)
+        }
+
+
     }
 }

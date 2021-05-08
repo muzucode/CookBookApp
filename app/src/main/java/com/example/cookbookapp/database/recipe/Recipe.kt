@@ -15,4 +15,5 @@ data class Recipe(
     val nativeBookId: Int?,
     val nativeUserId: Int?,
     val logo: String,
+    val link: String?
     )

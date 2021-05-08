@@ -28,6 +28,9 @@ class RecipeListActivity : AppCompatActivity() {
         var currentPage: Int = 1
         lateinit var listRecipes: List<Recipe>
 
+        // Get the mode that is passed over
+        var pageMode: String? = intent.getStringExtra("mode")
+
         // Save all recipe textviews to an array list
         var recViewList: ArrayList<TextView> = arrayListOf(
             findViewById<TextView>(R.id.recipe1),
@@ -94,9 +97,17 @@ class RecipeListActivity : AppCompatActivity() {
 
                     // Set click listener intent to go to the recipe page
                     recViewList[count].setOnClickListener{
-                        val intent: Intent = Intent(this@RecipeListActivity, RecipePageActivity::class.java)
-                        intent.putExtra("recipeId", listRecipes[i + 10*(currentPage-1)].rid)
-                        startActivity(intent)
+                        if(pageMode == "select"){
+                            val intent: Intent = Intent(this@RecipeListActivity, RecipePageActivity::class.java)
+                            intent.putExtra("recipeId", listRecipes[i + 10*(currentPage-1)].rid)
+                            startActivity(intent)
+                        }
+                        if(pageMode == "remove"){
+                            val intent: Intent = Intent(this@RecipeListActivity, RecipePageActivity::class.java)
+                            intent.putExtra("recipeId", listRecipes[i + 10*(currentPage-1)].rid)
+                            startActivity(intent)
+                        }
+
                     }
                     count++
                 }
