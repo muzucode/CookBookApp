@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity() {
             if(recipeDao.getAll().isEmpty()){
                 runOnUiThread{
                     findViewById<Button>(R.id.btnViewAllRecipes).visibility = Button.GONE
+                    findViewById<Button>(R.id.btnRemoveRecipe).visibility = Button.GONE
                 }
             }
         }

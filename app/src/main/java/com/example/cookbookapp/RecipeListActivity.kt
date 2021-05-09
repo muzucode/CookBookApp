@@ -102,9 +102,12 @@ class RecipeListActivity : AppCompatActivity() {
                             intent.putExtra("recipeId", listRecipes[i + 10*(currentPage-1)].rid)
                             startActivity(intent)
                         }
+                        // If in removal mode, then delete the recipe
                         if(pageMode == "remove"){
-                            val intent: Intent = Intent(this@RecipeListActivity, RecipePageActivity::class.java)
-                            intent.putExtra("recipeId", listRecipes[i + 10*(currentPage-1)].rid)
+                            GlobalScope.launch{
+                                recipeDao.deleteOne(listRecipes[i + 10*(currentPage-1)])
+                            }
+                            val intent: Intent = Intent(this@RecipeListActivity, MainActivity::class.java)
                             startActivity(intent)
                         }
 
