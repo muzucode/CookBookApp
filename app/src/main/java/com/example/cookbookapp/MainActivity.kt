@@ -1,12 +1,14 @@
 package com.example.cookbookapp
 
 import android.content.Intent
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.provider.Settings
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat
 import com.example.cookbookapp.database.AppDatabase
 import com.example.cookbookapp.fragments.NoRecipesFoundFragment
 import com.example.cookbookapp.fragments.RecipePageFragment
@@ -29,7 +31,12 @@ class MainActivity : AppCompatActivity() {
         GlobalScope.launch{
             if(recipeDao.getAll().isEmpty()){
                 runOnUiThread{
-                    findViewById<Button>(R.id.btnViewAllRecipes).visibility = Button.GONE
+                    findViewById<Button>(R.id.btnViewAllRecipes).apply{
+                        setBackgroundColor(resources.getColor(R.color.design_default_color_error))
+                        text = "Browse (No recipes found)"
+                        isClickable = false
+                    }
+
                     findViewById<Button>(R.id.btnRemoveRecipe).visibility = Button.GONE
                 }
             }
