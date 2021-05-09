@@ -1,4 +1,4 @@
-package com.example.cookbookapp
+package cbl.cookbooklite.cookbookliteapp
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,8 +6,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
-import com.example.cookbookapp.database.AppDatabase
-import com.example.cookbookapp.database.recipe.Recipe
+import com.example.cookbookapp.R
+import cbl.cookbooklite.cookbookliteapp.database.AppDatabase
+import cbl.cookbooklite.cookbookliteapp.database.recipe.Recipe
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.lang.Exception

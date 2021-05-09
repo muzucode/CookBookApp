@@ -4,11 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".RecipePageActivity">
+    tools:context="cbl.cookbooklite.cookbookliteapp.RecipePageActivity">
 
     <fragment
         android:id="@+id/fragment3"
-        android:name="com.example.cookbookapp.fragments.RecipePageFragment"
+        android:name="cbl.cookbooklite.cookbookliteapp.fragments.RecipePageFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"

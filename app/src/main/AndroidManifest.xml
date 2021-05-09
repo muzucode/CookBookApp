@@ -12,16 +12,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.SushiApp">
-        <activity android:name=".RecipePageActivity"></activity>
-        <activity android:name=".RecipeListActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name="cbl.cookbooklite.cookbookliteapp.RecipePageActivity"></activity>
+        <activity android:name="cbl.cookbooklite.cookbookliteapp.RecipeListActivity" />
+        <activity android:name="cbl.cookbooklite.cookbookliteapp.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".CreateRecipeActivity" />
+        <activity android:name="cbl.cookbooklite.cookbookliteapp.CreateRecipeActivity" />
     </application>
 
 </manifest>

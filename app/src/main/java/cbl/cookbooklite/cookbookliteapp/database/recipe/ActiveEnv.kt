@@ -1,4 +1,4 @@
-package com.example.cookbookapp.database.recipe
+package cbl.cookbooklite.cookbookliteapp.database.recipe
 
 class ActiveEnv {
 

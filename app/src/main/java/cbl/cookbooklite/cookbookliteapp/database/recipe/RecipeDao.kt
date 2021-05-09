@@ -1,4 +1,4 @@
-package com.example.cookbookapp.database.recipe
+package cbl.cookbooklite.cookbookliteapp.database.recipe
 
 import androidx.room.Dao
 import androidx.room.Delete

@@ -1,13 +1,14 @@
-package com.example.cookbookapp
+package cbl.cookbooklite.cookbookliteapp
 
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.example.cookbookapp.database.AppDatabase
-import com.example.cookbookapp.database.recipe.ActiveEnv
-import com.example.cookbookapp.database.recipe.Recipe
+import com.example.cookbookapp.R
+import cbl.cookbooklite.cookbookliteapp.database.AppDatabase
+import cbl.cookbooklite.cookbookliteapp.database.recipe.ActiveEnv
+import cbl.cookbooklite.cookbookliteapp.database.recipe.Recipe
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 

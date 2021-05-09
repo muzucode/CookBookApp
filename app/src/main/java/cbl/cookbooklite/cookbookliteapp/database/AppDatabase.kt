@@ -1,11 +1,11 @@
-package com.example.cookbookapp.database
+package cbl.cookbooklite.cookbookliteapp.database
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room.databaseBuilder
 import androidx.room.RoomDatabase
-import com.example.cookbookapp.database.recipe.Recipe
-import com.example.cookbookapp.database.recipe.RecipeDao
+import cbl.cookbooklite.cookbookliteapp.database.recipe.Recipe
+import cbl.cookbooklite.cookbookliteapp.database.recipe.RecipeDao
 
 @Database(entities = [Recipe::class], version = 1)
 abstract class AppDatabase: RoomDatabase() {

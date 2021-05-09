@@ -1,4 +1,4 @@
-package com.example.cookbookapp.fragments
+package cbl.cookbooklite.cookbookliteapp.fragments
 
 import androidx.fragment.app.Fragment
 import com.example.cookbookapp.R

@@ -1,17 +1,13 @@
-package com.example.cookbookapp
+package cbl.cookbooklite.cookbookliteapp
 
 import android.content.Intent
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.Settings
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.content.ContextCompat
-import com.example.cookbookapp.database.AppDatabase
-import com.example.cookbookapp.fragments.NoRecipesFoundFragment
-import com.example.cookbookapp.fragments.RecipePageFragment
+import com.example.cookbookapp.R
+import cbl.cookbooklite.cookbookliteapp.database.AppDatabase
+import cbl.cookbooklite.cookbookliteapp.fragments.NoRecipesFoundFragment
+import cbl.cookbooklite.cookbookliteapp.fragments.RecipePageFragment
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
