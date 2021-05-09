@@ -1,6 +1,7 @@
 package com.example.cookbookapp.database.recipe
 
 import androidx.room.Dao
+import androidx.room.Delete
 import androidx.room.Insert
 
 import androidx.room.Query
@@ -19,5 +20,7 @@ interface RecipeDao {
     @Insert
     suspend fun insertAll(recipes: List<Recipe>)
 
+    @Delete
+    fun deleteOne(recipe: Recipe)
 
 }
